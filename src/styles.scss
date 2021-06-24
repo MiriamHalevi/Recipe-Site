@@ -1,0 +1,12 @@
+/* You can add global stylres to this file, and also import other style files */
+
+@import "~bootstrap/dist/css/bootstrap.css";
+
+body{
+    background-image:url("../src/assets/images/last.png");
+    background-repeat: no-repeat;
+//    background-position: 100% 100%;
+background-size: 100%;
+// height: 100%;
+// overflow: hidden;
+}

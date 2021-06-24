@@ -1,0 +1,46 @@
+<div class="page-body">
+    <div class="auth-form-wrapper register-form-wrapper">
+        <form method="POST" action="https://bannerreview.co/register">
+            <input type="hidden" name="_token" value="UCRvE8ogNi0xO8aHnKs3mFR9YxJLQ3JPObJIfSez">
+            <div class="form-header">
+                <h2 class="text-center">login</h2>
+            </div>
+
+            <div class="form-row">
+                <div class="input-wrapper">
+                    <input id="name" type="text" name="name" value="" required #name autofocus="">
+                    <label for="name">Name</label>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="input-wrapper">
+                    <input id="password" type="password" name="pwd" value="" required #pwd>
+                    <label for="name">password</label>
+                </div>
+                <p class="error" *ngIf="!isPasswordTrue">הסיסמא שהוקשה שגויה</p>
+            </div>
+
+            <div class="form-action">
+                <div>
+                    <button type="submit" class="btn btn-primary" (click)="checkAndLogin(pwd.value,name.value)">
+                        login
+                    </button>
+                </div>
+            </div>
+            <div *ngIf="!isExist">
+                <div class="form-action error">
+                    <div class="error-span">
+                        <span>שם משתמש אינו קיים</span>
+                    </div>
+                    <div>
+
+                        <button type="submit" class="btn btn-primary" (click)="goToRegister(name.value)">
+                            register
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

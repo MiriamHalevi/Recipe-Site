@@ -1,0 +1,134 @@
+@import '../../variables.scss';
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+     
+}
+.error{
+    color: $input-letter;
+}
+html {
+    height: 80%;
+   
+}
+
+body {
+    margin-top: 2cm;
+    
+    padding-top: 3cm;
+    background-color: #f0f18a;
+}
+.select-name{
+    color: $input-letter;
+}
+.auth-form-wrapper {
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 620px;
+    padding: 40px 80px;
+    transform: translate(-50%, -50%);
+    background: #212121;
+    padding-top: 3cm;
+    margin-top: 15cm;
+}
+
+.text-center {
+    color: $yellow-color;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: normal;
+}
+
+.form-row {
+    height: 40px;
+    margin-bottom: 15px;
+    clear: both;
+}
+
+.input-wrapper {
+    height: 100%;
+    position: relative;
+    clear: both;
+    border-bottom: 1px solid $letters-color;
+    transition: 0.4s;
+}
+
+.input-wrapper::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 2px;
+    bottom: -1px;
+    left: 0;
+    background:$yellow-color;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: 0.4s ease;
+}
+
+.input-wrapper:focus-within::after {
+    transform: scaleX(1);
+}
+
+
+.input-wrapper > input {
+    width: 100%;
+    float: left;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: $letters-color;
+    margin-bottom: 30px;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.input-wrapper > input:focus ~ label,
+.input-wrapper > input:valid ~ label {
+    top: -20px;
+    left: 15px;
+    color: $input-letter;
+    font-size: 12px;
+}
+
+.input-wrapper > label {
+    position: absolute;
+    top:0;
+    left: 15px;
+    padding: 10px 0;
+    font-size: 16px;
+    color: $input-letter;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.form-action {
+    text-align: center;
+}
+
+.form-action button {
+    width: 290px;
+    height: 40px;
+    border-radius: 30px;
+    background-color: $yellow-color;
+    border: none;
+    color: $letters-color;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+p.note { 
+    text-align: center;
+    color: $input-letter;
+    margin-bottom: 30px;
+    clear: both;
+}
+
+p.note > span {
+    text-decoration: underline;
+}

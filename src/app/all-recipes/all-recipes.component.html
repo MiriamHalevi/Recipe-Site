@@ -1,0 +1,18 @@
+<div id="filters">
+  <div class="form-group">
+    <label for="usr">Name:</label>
+    <input type="text" class="form-control" id="name" [(ngModel)]="name" (blur)="filter()">
+  </div>
+  <div class="form-group">
+    <label for="usr">category:</label>
+    <input type="text" class="form-control" id="category" [(ngModel)]="category" (blur)="filter()">
+  </div>
+  <div class="form-group">
+    <label for="usr">Preparation Time:</label>
+    <input type="number" class="form-control" id="preparation" [(ngModel)]="time" (blur)="filter()">
+  </div>
+</div>
+
+<div id="recipes">
+  <app-one-recipe-details *ngFor="let recipe of RecipesArr" [myRecipe]="recipe"></app-one-recipe-details>
+</div>

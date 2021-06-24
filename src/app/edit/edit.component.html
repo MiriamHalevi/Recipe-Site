@@ -1,0 +1,129 @@
+<div class="page-body">
+    <div class="auth-form-wrapper register-form-wrapper">
+        <form #myForm="ngForm" (ngSubmit)="sendForm();" method="POST" action="https://bannerreview.co/register">
+            <input type="hidden" name="_token" value="UCRvE8ogNi0xO8aHnKs3mFR9YxJLQ3JPObJIfSez">
+            <div class="form-header">
+                <h2 class="text-center">edit the recipe</h2>
+            </div>
+            <div class="form-action">
+                <div>
+                    <button type="submit" class="btn btn-primary">
+                        save changes
+                    </button>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-wrapper">
+                    <input id="name" type="text" class="" name="name" [(ngModel)]="editedRecipe.Name" required
+                        autofocus="">
+                    <label for="name">Name</label>
+
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="input-wrapper">
+                    <input id="email" type="number" class="" name="preparationTime"
+                        [(ngModel)]="editedRecipe.PreparationTime" #preparationTime="ngModel" min="1" required
+                        autofocus="">
+                    <label for="name">PreparationTime</label>
+
+                </div>
+                <div class="error" *ngIf="!preparationTime.valid&&preparationTime.touched">שדה זמן הכנה אינו תקין!
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="input-wrapper">
+                    <input id="password" type="number" class="" name="difficultyLevel"
+                        [(ngModel)]="editedRecipe.DifficultyLevel" #difficultyLevel="ngModel" min="1" max="5" required
+                        autofocus="">
+                    <label for="name">DifficultyLevel</label>
+
+                </div>
+                <div class="error" *ngIf="!difficultyLevel.valid&&difficultyLevel.touched">שדה זה אינו תקין! </div>
+            </div>
+
+            <div class="form-row">
+                <div class="input-wrapper">
+                    <input id="name" type="" class="" name="description" [(ngModel)]="editedRecipe.Description" required
+                        autofocus="">
+                    <label for="name">Description</label>
+
+                </div>
+            </div>
+
+            <div class="select-name"><label>IsSeen :</label></div>
+            <div class="form-row">
+                <div class="input-wrapper">
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="checkbox" id="name" class="form-check-input" name="isSeen"
+                                [(ngModel)]="editedRecipe.IsSeen" required autofocus="">
+                        </label>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="select-name"><label>Category :</label></div>
+            <div class="form-row">
+                <div class="input-wrapper">
+                    <select [(ngModel)]="editedRecipe.CategoryCode" name="categoryCode" required autofocus="">
+                        <option *ngFor="let c of categories" [value]="c.Code">
+                            {{c.Name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="select-name"><label>ImgSrc :</label></div>
+            <div class="form-row">
+
+                <div class="input-wrapper">
+
+                    <select [(ngModel)]="editedRecipe.ImgSrc" name="imgSrc" required autofocus="">
+                        <option *ngFor="let i of images" [value]="i">
+                            {{i}}
+                        </option>
+                    </select>
+
+
+
+                </div>
+            </div>
+
+
+
+
+        </form>
+        <div>
+            <div class="select-name"><label>motheds list :</label></div>
+            <div class="form-row" *ngFor="let method of methods,let in=index,trackBy:trakbiy">
+
+                <div class="input-wrapper">
+                    <input type="text" [id]="in" name="{{in}}" [(ngModel)]="methods[in]"
+                        (click)="addInputMethod($event)" (blur)="checkMethod($event)">
+                    <label>method {{in}}</label>
+
+                </div>
+
+            </div>
+        </div>
+        <div>
+            <div class="select-name"><label>components list :</label></div>
+            <div class="form-row" *ngFor="let component of Components,let in=index,trackBy:trakbiy">
+
+                <div class="input-wrapper">
+                    <input type="text" [id]="in" name="{{in}}" [(ngModel)]="Components[in]" (click)="addInput($event)"
+                        (blur)="check($event)">
+                    <label>ComponentsList {{in}}</label>
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
